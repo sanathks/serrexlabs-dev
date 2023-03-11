@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.16.2",
+    "@contentful/rich-text-plain-text-renderer": "^16.0.2",
+    "reading-time": "^1.5.0",
     "@types/node": "18.14.6",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",

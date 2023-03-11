@@ -2,6 +2,11 @@ import { getPost, getPosts } from "@/app/services/posts"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { MARKS, BLOCKS } from '@contentful/rich-text-types'
 import { Metadata } from "next"
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import readingTime from 'reading-time';
+import Link from "next/link";
+import Image from 'next/image'
+import { dateFormat } from "@/app/services/utils";
 
 interface Props {
   params: {
@@ -13,7 +18,8 @@ export async function generateMetadata({ params: { slug } }: Props): Promise<Met
   const post = await getPost(slug)
 
   return {
-    title: post.title
+    title: post.title,
+    description: post.metaDescription
   }
 }
 
@@ -24,6 +30,10 @@ export async function generateStaticParams() {
 
 export default async function Post({ params: { slug } }: Props) {
   const post = await getPost(slug)
+
+  const readTime = readingTime(documentToPlainTextString(post.content))
+  const createdAt = dateFormat(post.createdAt)
+
 
   const options = {
     renderNode: {
@@ -54,9 +64,10 @@ export default async function Post({ params: { slug } }: Props) {
             <article>
               <header className="flex flex-col">
                 <div className="flex gap-4  items-center mb-1 mt-7">
-                  <img src="https://serrexlabs.com/content/images/2023/01/SERrex-labs.--1--1.png" alt="SERrex Labs" className="w-10 h-10" />
+                  <Image src="/logo.svg" alt="SERrex Labs" className="w-10 h-10" width={400} height={400} />
                   <div>
-                    <h3 className="text-xl font-bold tracking-tight text-zinc-800 sm:text-xl">SERrex Labs</h3>
+                    <Link href={'/'}><h3 className="text-xl font-bold tracking-tight text-zinc-800 sm:text-xl">SERrex Labs</h3></Link>
+                    <span className='text-gray-400 text-sm mt-0'>{createdAt} · {readTime.text}</span>
                   </div>
                 </div>
 

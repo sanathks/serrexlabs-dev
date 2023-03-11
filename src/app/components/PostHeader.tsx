@@ -9,7 +9,7 @@ export function PostHeader() {
           <div className="mx-auto lg:px-28 px-0 max-w-2xl lg:max-w-5xl">
             <div className="mx-auto">
               <div className="flex gap-4 mx-auto items-stretch">
-                <img src="https://serrexlabs.com/content/images/2023/01/SERrex-labs.--1--1.png" alt="SERrex Labs" className="w-10 h-10" />
+                <Image src="/logo.svg" width={500} height={500} alt="SERrex Labs" className="w-10 h-10" />
                 <h3 className="text-2xl font-bold tracking-tight text-zinc-800 sm:text-2xl">SERrex Labs</h3>
                 <SocialMedia />
               </div>

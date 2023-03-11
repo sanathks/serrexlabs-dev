@@ -9,7 +9,7 @@ export function Header() {
           <div className="mx-auto lg:px-28 px-0 max-w-2xl lg:max-w-5xl">
             <div className="mx-auto">
               <div className="flex gap-4 mx-auto items-center">
-                <img src="https://serrexlabs.com/content/images/2023/01/SERrex-labs.--1--1.png" alt="SERrex Labs" className="w-10 h-10" />
+                <Image src="/logo.svg" width={500} height={500} alt="SERrex Labs" className="w-10 h-10" />
                 <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl">SERrex Labs</h1>
               </div>
               <p className="mt-6 text-base text-zinc-600">
