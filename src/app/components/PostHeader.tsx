@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { SocialMedia } from "./SocialMeadia";
 
 export function PostHeader() {
   return (
@@ -11,7 +10,6 @@ export function PostHeader() {
               <div className="flex gap-4 mx-auto items-stretch">
                 <Image src="/logo.svg" width={500} height={500} alt="SERrex Labs" className="w-10 h-10" />
                 <h3 className="text-2xl font-bold tracking-tight text-zinc-800 sm:text-2xl">SERrex Labs</h3>
-                <SocialMedia />
               </div>
             </div>
           </div>
