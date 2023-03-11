@@ -1,3 +1,4 @@
+import Script from 'next/script'
 import './globals.css'
 
 export const metadata = {
@@ -12,11 +13,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
+      <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-1YZ6PN30NJ" />
+      <Script
+        id='google-analytics'
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1YZ6PN30NJ');
+        `,
+        }}
+      />
       <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
         <div className="fixed inset-0 flex justify-center sm:px-8">
           <div className="flex w-full max-w-6xl lg:px-8">

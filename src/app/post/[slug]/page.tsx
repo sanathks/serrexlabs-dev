@@ -25,7 +25,7 @@ export async function generateMetadata({ params: { slug } }: Props): Promise<Met
 
 export async function generateStaticParams() {
   const posts = await getPosts()
-  return posts.map(({slug}) =>({slug}))
+  return posts.map(({ slug }) => ({ slug }))
 }
 
 export default async function Post({ params: { slug } }: Props) {
@@ -64,7 +64,9 @@ export default async function Post({ params: { slug } }: Props) {
             <article>
               <header className="flex flex-col">
                 <div className="flex gap-4  items-center mb-1 mt-7">
-                  <Image src="/logo.svg" alt="SERrex Labs" className="w-10 h-10" width={400} height={400} />
+                  <Link href={'/'}>
+                    <Image src="/logo.svg" alt="SERrex Labs" className="w-10 h-10" width={400} height={400} />
+                  </Link>
                   <div>
                     <Link href={'/'}><h3 className="text-xl font-bold tracking-tight text-zinc-800 sm:text-xl">SERrex Labs</h3></Link>
                     <span className='text-gray-400 text-sm mt-0'>{createdAt} · {readTime.text}</span>
